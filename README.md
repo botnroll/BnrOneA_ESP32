@@ -4,6 +4,9 @@ This repository shows how to integrate the ESP32 with BnrOneA robot
 For more information about BnrOneA please visit us at
 http://botnroll.com/onea_en/
 
+For more information about how to use ESP32 with arduino please visit:
+https://github.com/espressif/arduino-esp32
+
 ## License 
 
 Copyright (c) botnroll.com. All right reserved.
