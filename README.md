@@ -1,10 +1,10 @@
-= BnrOneA_ESP32 Library for Arduino =
+# BnrOneA_ESP32 Library for Arduino 
 This repository shows how to integrate the ESP32 with BnrOneA robot
 
 For more information about BnrOneA please visit us at
 http://botnroll.com/onea_en/
 
-== License ==
+## License 
 
 Copyright (c) botnroll.com. All right reserved.
 
