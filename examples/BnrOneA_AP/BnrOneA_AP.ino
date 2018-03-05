@@ -1,29 +1,6 @@
-#include <string.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/event_groups.h"
-#include "esp_system.h"
-#include "esp_wifi.h"
-#include "esp_event_loop.h"
-#include "esp_log.h"
-#include "nvs_flash.h"
-#include "esp_partition.h"
-#include "cJSON.h"
-#include "soc/rtc.h"
-#include "driver/mcpwm.h"
-#include "soc/mcpwm_reg.h"
-#include "soc/mcpwm_struct.h"
-
 #include <WiFi.h>
 
-#include <Preferences.h>
-
 #define LED 13
-
-//Memory namespace
-const char * NamespacePreferences = "BnrOneA";
-
-Preferences memory;
 
 int freqInt = 0;
 int intervalInt = 0;
@@ -38,60 +15,12 @@ const char WiFiAPP_PASS[] = "botnroll";
 
 WiFiServer server(80);
 
-#define GPIO_PWM0A_OUT 16   //Set GPIO 16 as PWM0A
-
-void serverTask(void *data);
-
-void setupWiFi()
-{
-  if(!WIFI_STATE)
-  {
-    WIFI_STATE = true;
-
-    WiFi.mode(WIFI_AP);
-
-    WiFi.softAP(WiFiAPP_NAME, WiFiAPP_PASS);
-
-    server.begin();
-
-    Serial.print("Connedted to: ");
-    Serial.println(WiFiAPP_NAME);
-
-    Serial.println("Acess from: 192.168.4.1");
-  }
-}
-
-
-
-
 void setup()
 {
-      // Initialize NVS.
-    esp_err_t err = nvs_flash_init();
-    if (err == ESP_ERR_NVS_NO_FREE_PAGES) {
-      // OTA app partition table has a smaller NVS partition size than the non-OTA
-      // partition table. This size mismatch may cause NVS initialization to fail.
-      // If this happens, we erase NVS partition and initialize NVS again.
-      const esp_partition_t* nvs_partition = esp_partition_find_first(
-              ESP_PARTITION_TYPE_DATA, ESP_PARTITION_SUBTYPE_DATA_NVS, NULL);
-      assert(nvs_partition && "partition table must have an NVS partition");
-      ESP_ERROR_CHECK( esp_partition_erase_range(nvs_partition, 0, nvs_partition->size) );
-      err = nvs_flash_init();
-    }
-    ESP_ERROR_CHECK( err );
-
-    //begin namespace
-    memory.begin(NamespacePreferences, false);
-
-    pinMode(LED,OUTPUT);
-
-    digitalWrite(LED,LOW);
-    
-    freqInt = memory.getUInt("FQ",32000);
-
-    intervalInt = memory.getUInt("IN",5000);
-
     Serial.begin(115200);
+    
+    pinMode(LED,OUTPUT);
+    digitalWrite(LED,LOW);
 
     setupWiFi();
 }
@@ -124,9 +53,6 @@ void loop()
                 client.println("Content-type:text/html");
                 client.println();
 
-                // the content of the HTTP response follows the header:
-                //client.print(HTML);
-
                 String pp = "";
 
                 //pp =  "<a href='H' style='width:25%;margin-left:50%;margin-top:100px;height:150px;background-color:green;float:left;border-radius:50px;text-align:center;line-height:150px;color:white;'>Ligar</a>";
@@ -149,7 +75,6 @@ void loop()
               currentLine += c;      // add it to the end of the currentLine
              }
           }
-
         }
 
         String request = "";
@@ -165,7 +90,6 @@ void loop()
           printf("NEW FREQ: %s\n",val.c_str());
 
           freqInt = val.toInt();
-          memory.putUInt("FQ",freqInt);
           printf("FreqDefine saved : %ul\n",freqInt);
 
           //configPWM(freqInt,50);
@@ -176,7 +100,6 @@ void loop()
           printf("NEW TIME: %s\n",val.c_str());
 
           intervalInt = val.toInt();
-          memory.putUInt("IN",intervalInt);
           printf("intervalInt saved : %ul\n",intervalInt);
 
         }
@@ -184,8 +107,25 @@ void loop()
         // close the connection:
         client.stop();
         Serial.println("client disonnected");
-
         delay(100);
       }
 }
 
+void setupWiFi()
+{
+  if(!WIFI_STATE)
+  {
+    WIFI_STATE = true;
+
+    WiFi.mode(WIFI_AP);
+
+    WiFi.softAP(WiFiAPP_NAME, WiFiAPP_PASS);
+
+    server.begin();
+
+    Serial.print("Connedted to: ");
+    Serial.println(WiFiAPP_NAME);
+
+    Serial.println("Acess from: 192.168.4.1");
+  }
+}
