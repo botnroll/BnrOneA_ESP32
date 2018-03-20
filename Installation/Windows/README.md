@@ -1,11 +1,16 @@
-# BnrOneA_ESP32 Library for Arduino 
-This repository shows how to integrate the ESP32 with BnrOneA robot
+# Steps to install Arduino ESP32 support on Windows
+#### 1. Download and install the ArduinoESP32.exe file
+#### 2. Open arduino.exe on C:/program files(x86)/Arduino/Arduino/arduino.exe
 
-For more information about BnrOneA please visit us at
-http://botnroll.com/onea_en/
+#### 3. On arduino IDE go to Tools/Board and select ESP32 Dev Module
+Inline-style: 
+![Board Select](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/board.png "Board Select")
 
-For more information about how to use ESP32 with arduino please visit:
-https://github.com/espressif/arduino-esp32
+#### 4. Go to Tools/Upload speed and select 115200
+![Upload Speed](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/baudrate.png "Upload Speed")
+
+#### 5. Go to Tools/Port and select BnrOneA
+![Port](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/Upload.png "Port")
 
 ## License 
 
