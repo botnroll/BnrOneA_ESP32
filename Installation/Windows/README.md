@@ -1,6 +1,6 @@
 # Steps to install Arduino ESP32 support on Windows
 #### 1. Download and install the [ArduinoESP32.exe](www.roboparty.org/ArduinoESP32.exe) 
-#### 2. Open arduino.exe on C:/program files(x86)/Arduino/Arduino/arduino.exe
+#### 2. Open arduino.exe on C:/program files(x86)/Arduino/Arduino/arduino.exe (Or from the Desktop shortcut created)
 
 #### 3. On arduino IDE go to Tools/Board and select BnrOneA_ESP32
 ![Board Select](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/board.png "Board Select")
