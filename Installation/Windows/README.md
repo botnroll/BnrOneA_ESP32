@@ -14,6 +14,8 @@
 #### 6. Finally upload BnrOneA_RGB example to the robot, in the end you should see the RGB led changing it’s color from red to green an blue
 ![Upload](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/Upload.png "Upload")
 
+#### 7. (Optional) To progmam the robot wihtout a cable (Over The Air) please go to: [BnrOneA_OTA](https://github.com/botnroll/BnrOneA_ESP32/tree/master/BnrOneA/examples/ESP32/BnrOneA_OTA)
+
 ## License 
 
 Copyright (c) botnroll.com. All right reserved.
