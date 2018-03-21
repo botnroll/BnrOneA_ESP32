@@ -2,15 +2,17 @@
 #### 1. Download and install the [ArduinoESP32.exe](www.roboparty.org/ArduinoESP32.exe) 
 #### 2. Open arduino.exe on C:/program files(x86)/Arduino/Arduino/arduino.exe
 
-#### 3. On arduino IDE go to Tools/Board and select ESP32 Dev Module
-Inline-style: 
-![Board Select](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/board.png "Board Select")
+#### 3. On arduino IDE go to Tools/Board and select BnrOneA_ESP32
+![Board Select](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/board.png "Board Select")
 
-#### 4. Go to Tools/Upload speed and select 115200
-![Upload Speed](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/baudrate.png "Upload Speed")
+#### 4. Now connect the BnrOneA to your computer and select the serial port
+![Port](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/SerialPort.png "Port")
 
-#### 5. Go to Tools/Port and select BnrOneA
-![Port](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Windows/images/Upload.png "Port")
+#### 5. Got to File/Examples/BnrOneA/ESP32/BnrOneA_RGB
+![RGB](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/RGB.png "RGB")
+
+#### 6. Finally upload BnrOneA_RGB example to the robot, in the end you should see the RGB led changing it’s color from red to green an blue
+![Upload](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/Upload.png "Upload")
 
 ## License 
 
