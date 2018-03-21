@@ -9,6 +9,10 @@ Description:
 Botnroll One A Robot with ESP32 
 Over The Air Programming basic example
 */
+/*
+If it's the first time you are using this code, change the ssid and password to match your router configuration, then upload this file to the BnrOneA by serial port
+After the first sucess upload you will be able to see the BnrOneA on tools/port/BnrOneA at xxx.xxx.xxx.xxx that means you are now able to upload a new code by Wifi
+*/
 #include <BnrOneA.h>      // Bot'n Roll ONE A library
 #include <WiFi.h>         // ESP32 WifiLib
 #include <ESPmDNS.h>      // ESP 32 DNS lib
