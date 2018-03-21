@@ -1,6 +1,6 @@
 # Steps to install Arduino ESP32 support on Linux
 #### 1. Download and install the [Arduino folder](http://www.roboparty.org/ArduinoESP32.exe)
-#### 2. Open arduino from /home/user/arduino 
+#### 2. Open arduino from ~/arduino 
 
 #### 3. On arduino IDE go to Tools/Board and select BnrOneA_ESP32
 ![Board Select](https://github.com/botnroll/BnrOneA_ESP32/blob/master/Installation/Resources/images/board.png "Board Select")
